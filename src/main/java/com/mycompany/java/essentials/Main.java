@@ -6,15 +6,23 @@ package com.mycompany.java.essentials;
 
 // Imports
 import com.mycompany.java.essentials.model.UserData;
-
+import com.mycompany.java.essentials.db.UserDataHolder;
 /**
  *
  * @author franc
  */
 public class Main {
     public static void main (String[]args) {
-        UserData userData_1 = new UserData("francis", "54321", "admin");
-        UserData userData_2 = new UserData("guest", "12345", "customer");
+        
+        UserDataHolder userHolder = new UserDataHolder();
+        
+        // INITIALIZE ACCOUNT DETAILS
+        UserData userData_1 = new UserData(0, "francis", "54321", "admin");
+        UserData userData_2 = new UserData(1, "guest", "12345", "customer");
+        // ADD TO USER LIST
+        userHolder.setUserList(userData_1);
+        userHolder.setUserList(userData_2);
+
 
     }
 }

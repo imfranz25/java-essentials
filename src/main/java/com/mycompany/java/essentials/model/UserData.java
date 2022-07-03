@@ -10,14 +10,20 @@ package com.mycompany.java.essentials.model;
  */
 public class UserData {
     
+    private int id;
     private String userName;
     private String passWord;
     private String userType;
     
-    public UserData(String userName, String passWord, String userType) {
+    public UserData(int id, String userName, String passWord, String userType) {
+        this.id = id;
         this.userName = userName;
         this.passWord = passWord;
         this.userType = userType;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getUserName() {
@@ -30,6 +36,10 @@ public class UserData {
 
     public String getUserType() {
         return userType;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setUserName(String userName) {
