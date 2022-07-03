@@ -1,2 +1,7 @@
 com\mycompany\java\essentials\Main.class
+com\mycompany\java\essentials\page\LoginScreen.class
+com\mycompany\java\essentials\LoginServiceImpl.class
 com\mycompany\java\essentials\model\UserData.class
+com\mycompany\java\essentials\service\LoginService.class
+com\mycompany\java\essentials\db\UserDataHolder.class
+com\mycompany\java\essentials\page\WelcomeScreen.class

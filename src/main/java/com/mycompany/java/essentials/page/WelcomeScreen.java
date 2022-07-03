@@ -17,12 +17,11 @@ public class WelcomeScreen {
                          ********************
                          *Welcome to My Shop*
                          ********************
-                         0 - Login
+                         1 - Login
                          ********************
-                         1 - Exit
+                         0 - Exit
                          ********************
-                         \n \n
-                         What do you want to do?
+                         What do you want to do? 
                          """);
         choice = input.next();
         return choice;

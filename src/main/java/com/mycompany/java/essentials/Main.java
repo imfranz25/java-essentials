@@ -7,12 +7,17 @@ package com.mycompany.java.essentials;
 // Imports
 import com.mycompany.java.essentials.model.UserData;
 import com.mycompany.java.essentials.db.UserDataHolder;
+import com.mycompany.java.essentials.page.LoginScreen;
+
 /**
  *
  * @author franc
  */
 public class Main {
     public static void main (String[]args) {
+        
+        // LOGIN SCREEN INSTANCE
+        LoginScreen loginScreen = new LoginScreen();
         
         // INITIALIZE ACCOUNT DETAILS
         UserData userData_1 = new UserData(0, "francis", "54321", "admin");
@@ -24,6 +29,9 @@ public class Main {
         // ADD TO USER LIST
         userHolder.setUserList(userData_1);
         userHolder.setUserList(userData_2);
-
+        
+        // RUN LOGIN SCREEN
+        loginScreen.Login();
+        
     }
 }
