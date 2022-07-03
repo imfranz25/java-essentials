@@ -8,13 +8,14 @@ package com.mycompany.java.essentials;
 import com.mycompany.java.essentials.model.UserData;
 import com.mycompany.java.essentials.db.UserDataHolder;
 import com.mycompany.java.essentials.page.LoginScreen;
+import java.io.IOException;
 
 /**
  *
  * @author franc
  */
 public class Main {
-    public static void main (String[]args) {
+    public static void main (String[]args) throws IOException {
         
         // LOGIN SCREEN INSTANCE
         LoginScreen loginScreen = new LoginScreen();

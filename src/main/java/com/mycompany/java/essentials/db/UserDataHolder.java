@@ -12,10 +12,10 @@ import java.util.List;
  * @author franc
  */
 public class UserDataHolder {
-    private List<UserData> userList = new ArrayList<>();
+    private static List<UserData> userList = new ArrayList<>();
 
     public List<UserData> getUserList() {
-        return userList;
+        return this.userList;
     }
 
     public void setUserList(UserData user) {

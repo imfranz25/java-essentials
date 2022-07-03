@@ -4,7 +4,7 @@
  */
 package com.mycompany.java.essentials.page;
 
-import java.util.Scanner;
+import java.io.*;
 import com.mycompany.java.essentials.LoginServiceImpl;
 /**
  *
@@ -12,9 +12,9 @@ import com.mycompany.java.essentials.LoginServiceImpl;
  */
 public class LoginScreen {
     
-    public void Login() {
+    public void Login() throws IOException {
         // LIBRARIES
-        Scanner input = new Scanner(System.in);
+        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         // CLASS INSTANCE INITIALIZATION
         WelcomeScreen welcome = new WelcomeScreen();
         LoginServiceImpl login = new LoginServiceImpl();
@@ -24,32 +24,33 @@ public class LoginScreen {
 
         // EVALUATE WELCOME INPUT
         if(choice.equals("1")) {
-            loop:
-                while(true) {
-                    System.out.println("""
-                                     ***********************
-                                     *        LOGIN        *
-                                     ***********************
-                                     """);
-                    
-                    System.out.print("Username :");
-                    String userName = input.nextLine();
-                    System.out.print("Password :");
-                    String passWord = input.nextLine();
-                    
-                    String type  =  login.checkCredential(userName, passWord);
-                    
-                    if (type.equals("admin")) {
-                        System.out.print("Your an admin");
-                        break loop;
-                    } else if (type.equals("customer")) {
-                        System.out.print("Your an customer");
-                        break loop;
-                    } else {
-                        System.out.println(type); 
-                    }
-                    
+            
+            String type = "";
+            
+            do {
+                System.out.println("""
+                                 ***********************
+                                 *        LOGIN        *
+                                 ***********************
+                                 """);
+
+                System.out.println("Username :");
+                String userName = input.readLine();
+                System.out.println("Password :");
+                String passWord = input.readLine();
+
+                type  =  login.checkCredential(userName, passWord);
+
+                if (type.equals("admin")) {
+                    System.out.print("Your an admin");
+                    break;
+                } else if (type.equals("customer")) {
+                    System.out.print("Your a customer");
+                    break;
+                } else {
+                    System.out.println(type); 
                 }
+            } while(type.equals(""));
         } else if (choice.equals("0")) {
             System.out.println("Thank you for your service!");
         } else {
