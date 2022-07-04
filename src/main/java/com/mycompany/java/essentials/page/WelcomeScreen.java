@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class WelcomeScreen {
     public String getWelcomeInput() {
         Scanner input = new Scanner(System.in);
-        String choice = null;
+        String choice = "";
         System.out.print("""
                          ********************
                          *Welcome to My Shop*

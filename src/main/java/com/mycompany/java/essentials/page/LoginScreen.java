@@ -4,31 +4,34 @@
  */
 package com.mycompany.java.essentials.page;
 
-import java.io.*;
 import com.mycompany.java.essentials.LoginServiceImpl;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /**
  *
  * @author franc
  */
 public class LoginScreen {
-    
     public void Login() throws IOException {
         // LIBRARIES
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         // CLASS INSTANCE INITIALIZATION
         WelcomeScreen welcome = new WelcomeScreen();
+        HomeScreen home = new HomeScreen();
         LoginServiceImpl login = new LoginServiceImpl();
-
-        // SHOW WELCOME SCREEN AND GET INPUT
-        String choice = welcome.getWelcomeInput();
-
-        // EVALUATE WELCOME INPUT
-        if(choice.equals("1")) {
-            
-            String type = "";
-            
-            do {
+        
+        String type = "default";
+                
+        do {
+            // SHOW WELCOME SCREEN AND GET INPUT
+            type = "default";
+            // GET CHOICE FROM WELCOME SCREEN
+            String choice = welcome.getWelcomeInput();
+            // EVALUATE WELCOME INPUT
+            if(choice.equals("1")) {
                 System.out.println("""
+                                   \n
                                  ***********************
                                  *        LOGIN        *
                                  ***********************
@@ -42,20 +45,22 @@ public class LoginScreen {
                 type  =  login.checkCredential(userName, passWord);
 
                 if (type.equals("admin")) {
-                    System.out.print("Your an admin");
+                    home.Admin();
                     break;
                 } else if (type.equals("customer")) {
                     System.out.print("Your a customer");
                     break;
                 } else {
-                    System.out.println(type); 
+                    System.out.println("\nInvalid Username or Password\n"); 
                 }
-            } while(type.equals(""));
-        } else if (choice.equals("0")) {
-            System.out.println("Thank you for your service!");
-        } else {
-            System.out.println("Invalid Input");
-        }
+            } else if (choice.equals("0")) {
+                System.out.println("Thank you for your service!");
+                break;
+            } else {
+                System.out.println("Invalid Input");
+                break;
+            }
+        } while (type.equals(""));
     }
     
 }

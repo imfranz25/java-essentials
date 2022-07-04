@@ -18,14 +18,12 @@ public class LoginServiceImpl implements LoginService{
     public String checkCredential(String userName, String passWord) {
         UserDataHolder userHolder = new UserDataHolder();
         List<UserData> users = userHolder.getUserList();
-        String userType = "Default";
+        String userType = "";
 
         for (UserData user: users) {
             if (user.getUserName().equals(userName) && user.getPassWord().equals(passWord)) {
                 userType =  user.getUserType();
                 break;
-            } else {
-                userType = "\n INVALID USERNAME OR PASSWORD";
             }
         }
         return userType;
