@@ -48,7 +48,7 @@ public class LoginScreen {
                     home.Admin();
                     break;
                 } else if (type.equals("customer")) {
-                    System.out.print("Your a customer");
+                    home.Customer();
                     break;
                 } else {
                     System.out.println("\nInvalid Username or Password\n"); 
