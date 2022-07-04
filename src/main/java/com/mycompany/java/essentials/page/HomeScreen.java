@@ -17,6 +17,8 @@ public class HomeScreen {
     private String choice = "";
 
     public void Admin() throws IOException {
+        ManageOrders orders = new ManageOrders();
+        ManageProducts products = new ManageProducts();
         System.out.print("""
                          \n
                          ***********************
@@ -32,9 +34,9 @@ public class HomeScreen {
         if (this.choice.equals("0")) {
             this.login.Login();
         } else if (this.choice.equals("1")) {
-            System.out.print("Products");
+            orders.Orders();
         } else {
-            System.out.print("Orders");
+            products.Products();
         }
     }
     
