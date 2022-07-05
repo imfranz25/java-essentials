@@ -1,9 +1,14 @@
-com\mycompany\java\essentials\Main.class
-com\mycompany\java\essentials\page\LoginScreen.class
+com\mycompany\java\essentials\page\ManageProducts.class
 com\mycompany\java\essentials\LoginServiceImpl.class
 com\mycompany\java\essentials\model\UserData.class
 com\mycompany\java\essentials\page\HomeScreen.class
+com\mycompany\java\essentials\model\ProductData.class
 com\mycompany\java\essentials\service\LoginService.class
 com\mycompany\java\essentials\db\UserDataHolder.class
 com\mycompany\java\essentials\page\WelcomeScreen.class
-.netbeans_automatic_build
+com\mycompany\java\essentials\page\ManageOrders.class
+com\mycompany\java\essentials\ProductServiceImpl.class
+com\mycompany\java\essentials\Main.class
+com\mycompany\java\essentials\page\LoginScreen.class
+com\mycompany\java\essentials\db\ProductDataHolder.class
+com\mycompany\java\essentials\service\ProductService.class

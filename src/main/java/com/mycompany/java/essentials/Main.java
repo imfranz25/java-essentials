@@ -34,8 +34,8 @@ public class Main {
         userHolder.setUserList(userData_2);
         
         // INITIAL PRODUCTS
-        ProductData product_1 = new ProductData(0, "Bread", 25.0);
-        ProductData product_2 = new ProductData(0, "Ice Cream", 15.0);
+        ProductData product_1 = new ProductData(1, "Bread", 25.0);
+        ProductData product_2 = new ProductData(2, "Ice Cream", 15.0);
         
         // PRODUCT HOLDER -> STORE PRODUCT DATA
         ProductDataHolder productHolder = new ProductDataHolder();

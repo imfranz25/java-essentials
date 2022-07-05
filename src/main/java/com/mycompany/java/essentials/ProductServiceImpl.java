@@ -24,10 +24,15 @@ public class ProductServiceImpl implements ProductService {
         String productList = "ID\tname\tPrice\n";
         ProductDataHolder productHolder = new ProductDataHolder();
         List<ProductData> productData = productHolder.getProductList();
-        for(ProductData product: productData) {
-            productList = productList.concat(product.getId()+
-                    "\t"+product.getProductName()+
-                    "\t"+product.getProductPrice()+"\n");
+        
+        if(!productData.isEmpty()) {
+            for(ProductData product: productData) {
+                productList = productList.concat(product.getId()+
+                        "\t"+product.getProductName()+
+                        "\t"+product.getProductPrice()+"\n");
+            }
+        } else {
+            productList = "No products found.\n";
         }
         
         return productList;
@@ -93,7 +98,7 @@ public class ProductServiceImpl implements ProductService {
         String productName = "";
         ProductDataHolder productHolder = new ProductDataHolder();
         List<ProductData> productList = productHolder.getProductList();
-        
+
         for (ProductData product: productList) {
             if (product.getId()==id) {
                 productName = product.getProductName();

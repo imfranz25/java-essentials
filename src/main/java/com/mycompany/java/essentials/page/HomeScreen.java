@@ -30,13 +30,16 @@ public class HomeScreen {
                          0 - Logout \n
                          What do you want to do? 
                          """);
-        this.choice = input.next();
+        this.choice = this.input.next();
         if (this.choice.equals("0")) {
             this.login.Login();
         } else if (this.choice.equals("1")) {
+            products.Products();
+        } else if(this.choice.equals("2")) {
             orders.Orders();
         } else {
-            products.Products();
+            System.out.print("Invalid Input");
+            this.login.Login();
         }
     }
     
@@ -52,13 +55,16 @@ public class HomeScreen {
                          0 - Logout \n
                          What do you want to do? 
                          """);
-        this.choice = input.next();
+        this.choice = this.input.next();
         if (this.choice.equals("0")) {
             this.login.Login();
         } else if (this.choice.equals("1")) {
             System.out.print("Shop");
-        } else {
+        } else if(this.choice.equals("2")) {
             System.out.print("My Orders");
+        } else {
+            System.out.print("Invalid Input");
+            this.login.Login();
         }
     }
 }
