@@ -32,20 +32,55 @@ public class ProductServiceImpl implements ProductService {
         
         return productList;
     }
+    
+    /*
+    This function adds a new product (with id, name, and price)
+    and insert it to the product data DB
+    */
 
     @Override
     public void addProduct(String productName, Double productPrice) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ProductDataHolder productHolder = new ProductDataHolder();
+        ProductData newProduct = new ProductData(productHolder.getProductList().size()+1, productName, productPrice);
+        productHolder.addProductToDb(newProduct);
     }
+    
+    /*
+    @param id -> product id
+    This function get the id from the user then delete the specific product record that matches the id
+    */
 
-    @Override
+    @Override   
     public void removeProduct(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ProductDataHolder productHolder = new ProductDataHolder();
+        List<ProductData> productList = productHolder.getProductList();
+        for(ProductData product: productList) {
+            if(product.getId()==id) {
+                productHolder.removeProductToDb(product);
+                break;
+            }
+        }
     }
+    
+    /*
+    @param 
+    This function checks if the product is existing or not based on the parameter passed
+    */
 
     @Override
     public boolean checkProduct(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        boolean isProductExist = false;
+        
+        ProductDataHolder productHolder = new ProductDataHolder();
+        List<ProductData> productList = productHolder.getProductList();
+        for(ProductData product: productList) {
+            if(product.getId()==id) {
+                isProductExist = true;
+                break;
+            }
+        }
+        
+        return isProductExist;
     }
     
     /*
