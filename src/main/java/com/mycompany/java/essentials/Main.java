@@ -6,7 +6,9 @@ package com.mycompany.java.essentials;
 
 // Imports
 import com.mycompany.java.essentials.model.UserData;
+import com.mycompany.java.essentials.model.ProductData;
 import com.mycompany.java.essentials.db.UserDataHolder;
+import com.mycompany.java.essentials.db.ProductDataHolder;
 import com.mycompany.java.essentials.page.LoginScreen;
 import java.io.IOException;
 
@@ -30,6 +32,17 @@ public class Main {
         // ADD TO USER LIST
         userHolder.setUserList(userData_1);
         userHolder.setUserList(userData_2);
+        
+        // INITIAL PRODUCTS
+        ProductData product_1 = new ProductData(0, "Bread", 25.0);
+        ProductData product_2 = new ProductData(0, "Ice Cream", 15.0);
+        
+        // PRODUCT HOLDER -> STORE PRODUCT DATA
+        ProductDataHolder productHolder = new ProductDataHolder();
+        
+        // ADD TO USER LIST
+        productHolder.addProductToDb(product_1);
+        productHolder.addProductToDb(product_2);
         
         // RUN LOGIN SCREEN
         loginScreen.Login();

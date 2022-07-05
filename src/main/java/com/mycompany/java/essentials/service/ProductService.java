@@ -11,10 +11,10 @@ package com.mycompany.java.essentials.service;
 public interface ProductService {
     
     public String getProductInfo();
-    public void addProduct();
-    public void removeProduct();
-    public boolean checkProduct();
-    public String getProductName();
-    public Double getProductPrice();
+    public void addProduct(String productName, Double productPrice);
+    public void removeProduct(int id);
+    public boolean checkProduct(int id);
+    public String getProductName(int id);
+    public Double getProductPrice(int id);
     
 }
