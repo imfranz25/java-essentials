@@ -4,12 +4,28 @@
  */
 package com.mycompany.java.essentials.page;
 
+import java.util.Scanner;
 /**
  *
  * @author franc
  */
 public class ManageProducts {
     public void Products() {
-        System.out.print("Products");
+        Scanner input = new Scanner(System.in);
+        String choice = "";
+        
+        System.out.println("""
+                         \n
+                         ***********************
+                         *      PRODUCTS       *
+                         ***********************
+                         No products found.
+                         .......................
+                         1 - Add New Product
+                         2 - Remove Product
+                         0 - Back
+                         """);
+        System.out.print("What do you want to do : ");
+        choice = input.next();
     }
 }

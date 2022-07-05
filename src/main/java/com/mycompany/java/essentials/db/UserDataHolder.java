@@ -15,11 +15,11 @@ public class UserDataHolder {
     private static List<UserData> userList = new ArrayList<>();
 
     public List<UserData> getUserList() {
-        return this.userList;
+        return UserDataHolder.userList;
     }
 
     public void setUserList(UserData user) {
-        this.userList.add(user);
+        UserDataHolder.userList.add(user);
     }
     
 }
