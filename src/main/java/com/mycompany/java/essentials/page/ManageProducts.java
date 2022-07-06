@@ -78,14 +78,12 @@ public class ManageProducts extends ProductServiceImpl{
                         break;
                     } else if(isProductAdd.toUpperCase().equals("N")) {
                         System.out.println("Action Cancelled");
-                         home.Admin();
                         break;
                     } else {
                         System.out.println("Invalid input");
                     }
 
                 } while(true);
-
             } else if(choice.equals("2")) {
                 System.out.println("""
                                     \n
@@ -104,14 +102,14 @@ public class ManageProducts extends ProductServiceImpl{
                             break;
                         } else{
                             System.out.println("Product does not exist !");
+                            break;
                         }
                     } catch(IOException | NumberFormatException e) {
                         System.out.println("Invalid Id");
                     }
                 } while(true);
-                
-                // GO BACK TO ADMIN
-                home.Admin();
+            } else {
+                System.out.println("Invalid Input");
             }
         } while (true);
     }

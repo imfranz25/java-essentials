@@ -21,13 +21,19 @@ public class LoginScreen {
         HomeScreen home = new HomeScreen();
         LoginServiceImpl login = new LoginServiceImpl();
         
-        String type = "default";
+        String type;
                 
         do {
             // SHOW WELCOME SCREEN AND GET INPUT
             type = "default";
             // GET CHOICE FROM WELCOME SCREEN
-            String choice = welcome.getWelcomeInput();
+            String choice;
+            
+            do {
+                choice = welcome.getWelcomeInput();
+                if (!(choice.equals("1") || choice.equals("0"))) System.out.println("\nInvalid Input\n");
+            } while(!(choice.equals("1") || choice.equals("0")));
+            
             // EVALUATE WELCOME INPUT
             if(choice.equals("1")) {
                 System.out.println("""
@@ -55,9 +61,6 @@ public class LoginScreen {
                 }
             } else if (choice.equals("0")) {
                 System.out.println("Thank you for your service!");
-                break;
-            } else {
-                System.out.println("Invalid Input");
                 break;
             }
         } while (type.equals(""));

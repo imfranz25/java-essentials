@@ -14,14 +14,14 @@ import java.util.List;
  * @author franc
  */
 public class ProductServiceImpl implements ProductService {
-
+    private static int id = 1;
     /*
     This function get the product list -> from the ProductDataHolders
     */
     
     @Override
     public String getProductInfo() {
-        String productList = "ID\tname\tPrice\n";
+        String productList = "ID\tname\t\tPrice\n";
         ProductDataHolder productHolder = new ProductDataHolder();
         List<ProductData> productData = productHolder.getProductList();
         
@@ -29,7 +29,7 @@ public class ProductServiceImpl implements ProductService {
             for(ProductData product: productData) {
                 productList = productList.concat(product.getId()+
                         "\t"+product.getProductName()+
-                        "\t"+product.getProductPrice()+"\n");
+                        "\t\t"+product.getProductPrice()+"\n");
             }
         } else {
             productList = "No products found.\n";
@@ -46,7 +46,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void addProduct(String productName, Double productPrice) {
         ProductDataHolder productHolder = new ProductDataHolder();
-        ProductData newProduct = new ProductData(productHolder.getProductList().size()+1, productName, productPrice);
+        ProductData newProduct = new ProductData(ProductServiceImpl.id++, productName, productPrice);
         productHolder.addProductToDb(newProduct);
     }
     
