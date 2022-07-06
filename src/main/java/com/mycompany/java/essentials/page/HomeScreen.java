@@ -19,7 +19,6 @@ public class HomeScreen {
     private String choice = "";
 
     public void Admin() throws IOException {
-        ManageOrders orders = new ManageOrders();
         ManageProducts products = new ManageProducts();
         System.out.print("""
                          \n
@@ -38,7 +37,8 @@ public class HomeScreen {
         } else if (this.choice.equals("1")) {
             products.Products();
         } else if(this.choice.equals("2")) {
-            orders.Orders();
+            System.out.print("Manage Orders");
+
         } else {
             System.out.print("Invalid Input");
             this.login.Login();
@@ -46,6 +46,7 @@ public class HomeScreen {
     }
     
     public void Customer() throws IOException {
+        ManageOrders orders = new ManageOrders();
         System.out.print("""
                          \n
                          ***********************
@@ -61,9 +62,9 @@ public class HomeScreen {
         if (this.choice.equals("0")) {
             this.login.Login();
         } else if (this.choice.equals("1")) {
-            System.out.print("Shop");
+            orders.Shop();
         } else if(this.choice.equals("2")) {
-            System.out.print("My Orders");
+            orders.MyOrders();
         } else {
             System.out.print("Invalid Input");
             this.login.Login();

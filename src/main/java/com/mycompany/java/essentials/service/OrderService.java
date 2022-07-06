@@ -9,5 +9,7 @@ package com.mycompany.java.essentials.service;
  * @author franc
  */
 public interface OrderService {
-    public void addOrder();
+    public void addOrder(int productId, int productQuantity);
+    public Double calculateTotal(int productQuantity, Double productPrice);
+    public String viewOrder();
 }
