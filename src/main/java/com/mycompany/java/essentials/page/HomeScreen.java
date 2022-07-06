@@ -20,6 +20,8 @@ public class HomeScreen {
 
     public void Admin() throws IOException {
         ManageProducts products = new ManageProducts();
+        ManageOrders orders = new ManageOrders();
+
         System.out.print("""
                          \n
                          ***********************
@@ -37,8 +39,7 @@ public class HomeScreen {
         } else if (this.choice.equals("1")) {
             products.Products();
         } else if(this.choice.equals("2")) {
-            System.out.print("Manage Orders");
-
+            orders.UpdateOrder();
         } else {
             System.out.print("Invalid Input");
             this.login.Login();

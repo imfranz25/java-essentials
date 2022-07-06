@@ -5,9 +5,11 @@
 package com.mycompany.java.essentials;
 
 import com.mycompany.java.essentials.page.HomeScreen;
+import com.mycompany.java.essentials.page.ManageOrdersScreen;
 import com.mycompany.java.essentials.page.OrderScreen;
 import com.mycompany.java.essentials.page.ShopScreen;
 import com.mycompany.java.essentials.page.MyOrdersScreen;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,6 +20,36 @@ import java.io.InputStreamReader;
  * @author franc
  */
 public class ManageOrders extends OrderServiceImpl {
+    
+    public void UpdateOrder() throws IOException {
+        HomeScreen home = new HomeScreen();
+        ManageOrdersScreen orderScreen = new ManageOrdersScreen();
+        String confirmOrder;
+        
+        // ASK USER WHAT TO DO NEXT
+        String updateChoice;
+        
+        while(true) {
+            updateChoice = orderScreen.setDelivered();
+            if(updateChoice.equals("0")) {
+                home.Admin();
+                break;
+            } else {
+                confirmOrder = orderScreen.UpdateOrderConfirmation();
+                if(confirmOrder.equalsIgnoreCase("x")) {
+                    home.Admin();
+                    break;
+                } else if(checkOrder(confirmOrder)) {
+                    updateOrderStatus(confirmOrder);
+                } else {
+                    System.out.println("\nOrder record does not exist!");
+                }
+            }
+        }
+
+        
+    }
+    
     public void Shop() throws IOException {
         ProductServiceImpl productService = new ProductServiceImpl();
         ShopScreen shopScreen = new ShopScreen();

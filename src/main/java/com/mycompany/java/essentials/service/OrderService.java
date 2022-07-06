@@ -12,4 +12,6 @@ public interface OrderService {
     public void addOrder(int productId, int productQuantity);
     public Double calculateTotal(int productQuantity, Double productPrice);
     public String viewOrder();
+    public boolean checkOrder(String referenceNumber);
+    public void updateOrderStatus(String referenceNumber);
 }

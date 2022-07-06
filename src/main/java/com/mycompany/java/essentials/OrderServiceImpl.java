@@ -17,6 +17,7 @@ import java.util.Random;
  * @author franc
  */
 public class OrderServiceImpl implements OrderService {
+    
     @Override
     public void addOrder(int productId, int productQuantity) {
         // BUILT IN LIBS & INSTANCE CLASS
@@ -42,7 +43,6 @@ public class OrderServiceImpl implements OrderService {
     public String viewOrder() {
         OrderDataHolder orderHolder = new OrderDataHolder();
         ProductServiceImpl productService = new ProductServiceImpl();
-
         List<OrderData> orderList = orderHolder.getOrderList();
         
         String orders = "\nDate\tReference\tName\tPrice\tQty\tTotal\tStatus\n";
@@ -62,6 +62,35 @@ public class OrderServiceImpl implements OrderService {
         }
         
         return orders;
+    }
+
+    @Override
+    public boolean checkOrder(String referenceNumber) {
+        OrderDataHolder orderHolder = new OrderDataHolder();
+        List<OrderData> orderList = orderHolder.getOrderList();
+        boolean isOrderExist = false;
+        
+        for(OrderData order: orderList){
+            if(order.getRefereenceNumber().equals(referenceNumber)) {
+                isOrderExist = true;
+                break;
+            }
+        }
+        
+        return isOrderExist;
+    }
+    
+    @Override
+    public void updateOrderStatus(String referenceNumber) {
+        OrderDataHolder orderHolder = new OrderDataHolder();
+        List<OrderData> orderList = orderHolder.getOrderList();
+        
+        for(OrderData order: orderList){
+            if(order.getRefereenceNumber().equals(referenceNumber)) {
+                order.setOrderStatus("DELIVERED");
+                break;
+            }
+        }
     }
 
 }

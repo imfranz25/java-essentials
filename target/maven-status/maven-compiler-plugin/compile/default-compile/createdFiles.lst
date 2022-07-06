@@ -18,4 +18,5 @@ com\mycompany\java\essentials\page\LoginScreen.class
 com\mycompany\java\essentials\db\ProductDataHolder.class
 com\mycompany\java\essentials\service\ProductService.class
 com\mycompany\java\essentials\OrderServiceImpl.class
+com\mycompany\java\essentials\page\ManageOrdersScreen.class
 com\mycompany\java\essentials\model\OrderData.class
