@@ -4,6 +4,8 @@
  */
 package com.mycompany.java.essentials.page;
 
+import com.mycompany.java.essentials.ManageOrders;
+import com.mycompany.java.essentials.ManageProducts;
 import java.io.IOException;
 import java.util.Scanner;
 /**
